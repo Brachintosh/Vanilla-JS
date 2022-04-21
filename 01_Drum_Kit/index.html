@@ -69,11 +69,17 @@ function wellcome() {
 function alertFunc() {
   // alert(`Wellcome! Tap the buttons or press the keyboards. Have fun!!`);
     Swal.fire({
-      title: 'Do you want do some music?',
+      imageUrl: 'https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-drums-event-management-flaticons-lineal-color-flat-icons.png',
+      imageHeight: '64px',
+      width: '50vw',
+      imageAlt: 'Drum icon image',
+      title: 'Do you want to do some music?',
       text: 'Tap the buttons or press the keyboards. Have fun!!',
       icon: 'info',
-      confirmButtonText: 'Cool'
+      confirmButtonText: 'Cool!',
+      timer: 4500,
   })
+  
 };
 
 wellcome();
