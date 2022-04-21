@@ -9,6 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=My+Soul&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
+    <!-- <script src="sweetalert2.all.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
   </head>
   
   <body>
@@ -55,11 +60,39 @@
 
   <audio data-key="65" src="sounds/clap.wav"></audio> <audio data-key="83" src="sounds/hihat.wav"></audio> <audio data-key="68" src="sounds/kick.wav"></audio> <audio data-key="70" src="sounds/openhat.wav"></audio> <audio data-key="71" src="sounds/boom.wav"></audio> <audio data-key="72" src="sounds/ride.wav"></audio> <audio data-key="74" src="sounds/snare.wav"></audio> <audio data-key="75" src="sounds/tom.wav"></audio> <audio data-key="76" src="sounds/tink.wav"></audio>
  <script>
- 
- function playSound(e) { const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+  // Alert when you enter the site:
+let timeout;
+function wellcome() {
+  timeout = setTimeout(alertFunc, 250);
+};
+
+function alertFunc() {
+  // alert(`Wellcome! Tap the buttons or press the keyboards. Have fun!!`);
+    Swal.fire({
+      title: 'Do you want do some music?',
+      text: 'Tap the buttons or press the keyboards. Have fun!!',
+      icon: 'info',
+      confirmButtonText: 'Cool'
+  })
+};
+
+wellcome();
+
+
+ function playSound(e) { 
   // console.log(e.keyCode);
-  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-  // console.log(audio);
+  let code;
+  if(e.keyCode) {
+    //It was a pressed keyboard:
+    code = e.keyCode;
+  } else {
+    // If it was clicked: ---> Read the keyCode pressed by clicking
+    code = this.dataset.key;
+  }
+  
+  const key = document.querySelector(`.key[data-key="${code}"]`);
+  const audio = document.querySelector(`audio[data-key="${code}"]`);
+
   if(!audio) return;
   // To stop the function if there is NO audio at the pressed key.
   audio.currentTime = 0; 
@@ -76,18 +109,26 @@
   this.classList.remove('playing');
 };
 
-  const keys = document.querySelectorAll('.key');   // className = 'key'
-  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-  
+  const keys = document.querySelectorAll('.key')
+    for (let i=0, key; key = keys[i]; i++) {
+      key.addEventListener('transitionend', removeTransition);
+      key.addEventListener('click', playSound);
+    }
+
   window.addEventListener('keydown', playSound);
- </script>
+  
+  </script>
+
     <footer> 
       <div class="containerFooter">
 
         <img alt="icon-code" src="./sounds/programming1.png" width="18px" height="18px" />
         <span>developed by @brachintosh</span>
-        
+
       </div>
     </footer>
   </body>
 </html>
+
+<!-- var windowContent = window.addEventListener;
+console.log('windowContent :>> ', windowContent); -->
