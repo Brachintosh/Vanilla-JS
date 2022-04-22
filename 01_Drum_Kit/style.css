@@ -79,9 +79,51 @@ kbd {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100vw;
   text-align: center;
   background-color: rgb(236, 239, 241);
 }
 .containerFooter span {
   padding-left: .75rem;
+}
+
+.audioContainer {
+  position: relative;
+  margin: 0;
+}
+
+.imgTitleAudio {
+  margin-right: 16px;
+}
+
+.audioTrack {
+  position:relative;
+  bottom: 16rem;
+  left: 0rem;
+  margin-left: 10rem;
+}
+
+.audioTrack-mp3 {
+  border-radius: 32px;
+  border: 1px solid #34343465;
+  box-shadow: 5px .5px 35px 10px #dc8181;
+}
+
+.figCaptionAudio {
+  font-family: 'My Soul';
+  letter-spacing: 3px;
+  text-shadow: 2px 2px  .305rem rgb(149, 117, 205);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(59, 9, 9, 0.9);
+  border: solid rgba(255, 255, 255, 0.614) 1px;
+  border-radius: 32px;
+  padding: 16px 10px 16px 10px;
+  width: 24rem;
+  color: aliceblue;
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 4rem;
+  box-shadow: 5px .5px 35px 10px #888888;
 };

@@ -129,18 +129,23 @@ wellcome();
   window.addEventListener('keydown', playSound);
   
 </script>
-
-<figure>
-  <figcaption>Listen to the T-Rex:</figcaption>
-  <audio
-      loop="true"
-      controls
-      src="./sounds/coffee-chill-lo-fi-2.mp3">
-          Your browser does not support the
-          <code>audio</code> element.
-  </audio>
-</figure>
-
+<div class="audioContainer">
+  <div class="audioTrack" >
+    <figure>
+      <figcaption class="figCaptionAudio" >
+        <img alt="drum-icon" src="./sounds/drums-64.png" width="38px" height="38px" class="imgTitleAudio"/>
+        Listen Lo-Fi:
+      </figcaption>
+      <audio  class="audioTrack-mp3"
+          loop="true"
+          controls
+          src="./sounds/coffee-chill-lo-fi-2.mp3">
+              Your browser does not support the
+              <code>audio</code> element.
+      </audio>
+    </figure>
+  </div>
+</div>
     <footer> 
       <div class="containerFooter">
 
