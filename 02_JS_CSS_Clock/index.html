@@ -1,72 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Clock</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <title>JS + CSS Clock</title>
 </head>
 <body>
-    <div id="MyClockDisplay" class="clock" ></div>
-    <section class="section">
-        <div class="columns">
-            <div class="column has-text-centered">
-                <h2 id="tiempoTranscurrido"></h2>
-				<button class="button is-success is-large" id="btnIniciar"><span class="mdi mdi-play"></span></button>
-				<button class="button is-success is-large" id="btnPausar"><span class="mdi mdi-pause"></span></button>
-				<button class="button is-primary is-large" id="btnMarca"><span class="mdi mdi-flag"></span></button>
-				<button class="button is-warning is-large" id="btnDetener"><span class="mdi mdi-stop"></span></button>
-				<div id="contenedorMarcas">
-                </div>
-			</div>
-		</div>
-	</section>
-    
-	<script src="script.js"></script>
 
-    <script type="text/javascript" >
 
-        function showTime() {
-            var date = new Date();
-            var hour = date.getHours() //   0 - 23
-            var minutes = date.getMinutes() //  0 - 59
-            var seconds = date.getSeconds() // 0 - 59
-            var miliSecs = date.getMilliseconds() //    0 - 999
-            var session = "AM";
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
+      </div>
+    </div>
 
-            // Formatting hour
-            if(hour === 0 ) {
-                hour = 12;
-            } 
-            if ( hour > 12 ) {
-                hour = hour - 11;
-                session = "PM";
-            }
-            // if (hour < 10 ) {
-            //     hour = "0" + hour;
-            // }
-            hour = (hour < 10) ? "0" + hour : hour;
-            minutes = (minutes < 10) ? "0" + minutes : minutes;
-            seconds = (seconds < 10) ? "0" + seconds : seconds;
-            
 
-            var myTime = hour + " : " + minutes + " : " + seconds + "  -  " + session + ".";
+  <style>
+    html {
+      background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
+      background-size: cover;
+      font-family: 'helvetica neue';
+      text-align: center;
+      font-size: 10px;
+    }
 
-            document.getElementById("MyClockDisplay").innerText = myTime;
-            document.getElementById("MyClockDisplay").textContent = myTime;
+    body {
+      margin: 0;
+      font-size: 2rem;
+      display: flex;
+      flex: 1;
+      min-height: 100vh;
+      align-items: center;
+    }
 
-            setTimeout(showTime, 1);
-        }
-        showTime();
-        // Keep the function running:
-        // setInterval(showTime, 1);
+    .clock {
+      width: 30rem;
+      height: 30rem;
+      border: 20px solid white;
+      border-radius: 50%;
+      margin: 50px auto;
+      position: relative;
+      padding: 2rem;
+      box-shadow:
+        0 0 0 4px rgba(0,0,0,0.1),
+        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 10px black,
+        0 0 10px rgba(0,0,0,0.2);
+    }
 
-    </script>
-    
+    .clock-face {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-3px); /* account for the height of the clock hands */
+    }
+
+    .hand {
+      width: 50%;
+      height: 6px;
+      background: black;
+      position: absolute;
+      top: 50%;
+    }
+
+  </style>
+
+  <script>
+
+
+  </script>
 </body>
 </html>
