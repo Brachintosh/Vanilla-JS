@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Clock</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div id="MyClockDisplay" ></div>
+
+    <script type="text/javascript" >
+
+        function showTime() {
+            var date = new Date();
+            var hour = date.getHours() //   0 - 23
+            var minutes = date.getMinutes() //  0 - 59
+            var seconds = date.getSeconds() // 0 - 59
+            var miliSecs = date.getMilliseconds() //    0 - 999
+
+            var myTime = hour + ":" + minutes + ":" + seconds + ":" + miliSecs;
+
+            document.getElementById("MyClockDisplay").innerText = myTime;
+            document.getElementById("MyClockDisplay").textContent = myTime;
+
+        }
+        showTime();
+        // Keep the function running:
+        setInterval(showTime, 1);
+
+    </script>
+    
+</body>
+</html>
