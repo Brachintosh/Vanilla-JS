@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <div id="MyClockDisplay" ></div>
+    <div id="MyClockDisplay" class="clock" ></div>
 
     <script type="text/javascript" >
 
@@ -19,16 +19,34 @@
             var minutes = date.getMinutes() //  0 - 59
             var seconds = date.getSeconds() // 0 - 59
             var miliSecs = date.getMilliseconds() //    0 - 999
+            var session = "AM";
 
-            var myTime = hour + ":" + minutes + ":" + seconds + ":" + miliSecs;
+            // Formatting hour
+            if(hour === 0 ) {
+                hour = 12;
+            } 
+            if ( hour > 12 ) {
+                hour = hour - 12;
+                session = "PM";
+            }
+            // if (hour < 10 ) {
+            //     hour = "0" + hour;
+            // }
+            hour = (hour < 10) ? "0" + hour : hour;
+            miniutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+            
+
+            var myTime = hour + ":" + minutes + ":" + seconds + " " + session + ".";
 
             document.getElementById("MyClockDisplay").innerText = myTime;
             document.getElementById("MyClockDisplay").textContent = myTime;
 
+            setTimeout(showTime, 1);
         }
         showTime();
         // Keep the function running:
-        setInterval(showTime, 1);
+        // setInterval(showTime, 1);
 
     </script>
     
