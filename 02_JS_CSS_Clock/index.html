@@ -5,11 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Clock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
     <div id="MyClockDisplay" class="clock" ></div>
+    <section class="section">
+        <div class="columns">
+            <div class="column has-text-centered">
+                <h2 id="tiempoTranscurrido"></h2>
+				<button class="button is-success is-large" id="btnIniciar"><span class="mdi mdi-play"></span></button>
+				<button class="button is-success is-large" id="btnPausar"><span class="mdi mdi-pause"></span></button>
+				<button class="button is-primary is-large" id="btnMarca"><span class="mdi mdi-flag"></span></button>
+				<button class="button is-warning is-large" id="btnDetener"><span class="mdi mdi-stop"></span></button>
+				<div id="contenedorMarcas">
+                </div>
+			</div>
+		</div>
+	</section>
+    
+	<script src="script.js"></script>
 
     <script type="text/javascript" >
 
@@ -26,18 +44,18 @@
                 hour = 12;
             } 
             if ( hour > 12 ) {
-                hour = hour - 12;
+                hour = hour - 11;
                 session = "PM";
             }
             // if (hour < 10 ) {
             //     hour = "0" + hour;
             // }
             hour = (hour < 10) ? "0" + hour : hour;
-            miniutes = (minutes < 10) ? "0" + minutes : minutes;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
             seconds = (seconds < 10) ? "0" + seconds : seconds;
             
 
-            var myTime = hour + ":" + minutes + ":" + seconds + " " + session + ".";
+            var myTime = hour + " : " + minutes + " : " + seconds + "  -  " + session + ".";
 
             document.getElementById("MyClockDisplay").innerText = myTime;
             document.getElementById("MyClockDisplay").textContent = myTime;
