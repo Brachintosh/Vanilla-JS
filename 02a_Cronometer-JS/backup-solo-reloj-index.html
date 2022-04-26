@@ -55,9 +55,10 @@
 
         function showTime() {
             var date = new Date();
-            var hola = date;
+
             var displayDay = date.getUTCDate();
-            var displayMonth = date.getMonth();
+            let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            var displayMonth = date.toLocaleString("en-US");
             var displayYear = date.getFullYear();
             var hour = date.getHours() //   0 - 23
             var minutes = date.getMinutes() //  0 - 59
@@ -85,7 +86,7 @@
             var myDateDisplay = displayDay + "/" + displayMonth + "/" + displayYear + "."
 
             document.getElementById("MyClockDisplay").innerText = myTime;
-            document.getElementById("MyDate").innerText = hola;
+            document.getElementById("MyDate").innerText = myDateDisplay;
             document.getElementById("MyClockDisplay").textContent = myTime;
 
             setTimeout(showTime, 1);
